@@ -1,0 +1,36 @@
+1_JDBC개요.pptx
+
+Java와 DB를 연결할 수 있는 통로가 필요!
+이를 이어주는 역할을 하는 것이 JDBC임
+통로가 되는 객체가 Connection임!
+------------------------------------------------------------------------------------
+스프링부트에서는 ojdbc11을 이용하는 중임!
+수업에서는 ojdbc10을 이용할 예정!
+
+https://mvnrepository.com/
+오픈소스 받을 수 있는 홈페이지: ojdbc 다운용도? 말고 다른것도 있을거 같긴함
+--------------------------------------------------------------------------------
+java에서 db에 접근해서 특정 data를 얻으려고 SQL를 보내는 객체가 Statement임!
+
+Java - SQL(승객) Statement(버스) - DB
+
+PreparedStatement : 빵꾸난 SQL 문장을 전달할 때 사용하는 객체
+query에 ?가 있는 지 기준으로 구분(ppt pp8~pp9)
+
+-----------------------------------------------------------------------------
+이클립스에서 새로운 폴더(04_JDBC)를 워크스페이스로 선택!
+
+외부에서 변경사항 바로반영
+preferences - general -workspace - refresh using native hooks or polling 체크!
+
+
+new java project 만들고 맨 아래 부분에 있는
+create module-info 체크박스 해제!
+
+일반 자바프로젝트에서 외부 lib넣는 방법
+프로젝트 갖다 대고 마우스 우클릭 properties
+java build path -> libraries 클릭
+classpath 선택 - add external jars 클릭
+C:\tools\ojdbc10-full 에 ojdbc10.jar 선택 후 열기!
+apply and close 클릭
+
