@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<comment>driver.xml file!!!</comment>
+	
+	<!-- jdbc 이용하면서 드라이버 / DB 연결 정보를 계속 클래스 안에 바로 작성...
+		
+		DB 연결을 위한 정보들을 별도 파일 driver.xml에 작성하여 읽어오는 형식으로 코드를 변경
+		
+		이유 1 : 보안적인 측면의 이유(DB정보, 사용자계정, 비밀번호 등)
+		이유 2 : DB 연결정보가 변경될 경우 Java 코드가 아닌
+				 읽어오는 외부 파일(driver.xml)의 내용을 수정하면 되기 때문에
+				 재컴파일 시간 X -> 개발시간 단축!!
+		
+		<entry></entry> : entry K:V 한 쌍
+		
+		entry는 properties 안에만 작성할 수 있음!
+	 -->
+	 
+	 <entry key="driver">oracle.jdbc.driver.OracleDriver</entry>
+	 <entry key="url">jdbc:oracle:thin:@localhost:1521:XE</entry>
+	 <entry key="userName">kh_jwj</entry>
+	 <entry key="password">kh1234</entry>
+</properties>
