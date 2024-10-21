@@ -6,6 +6,6 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="lib" path="C:/Tools/ojdbc10-full/ojdbc10.jar"/>
+	<classpathentry kind="lib" path="C:/tools/ojdbc10-full/ojdbc10.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
