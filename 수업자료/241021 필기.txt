@@ -1,0 +1,48 @@
+View 단에서 처리(메서드마다 다양)
+1. CREATE 의 경우
+  - 대입할 값 입력 받기
+  - 필요한 객체 생성
+  - 필요한 부분에 setter 
+  - service.메서드 호출
+  - null or empty(List)인 경우 별도로 print 구문
+
+2. READ(SELECT) 의 경우
+  - service.메서드 호출
+  - null or empty(List)인 경우 별도로 print 구문
+
+3. UPDATE 의 경우
+
+4. DELETE 의 경우
+
+-------------------------------------------------------------------
+(★) import static edu.kh.jdbc.common.JDBCTemplate.close;
+Service 단 에서 처리(대부분 동일)
+1. 커넥션 생성
+2. 데이터 가공 (할 거 없으면 Pass)
+3. DAO 메서드 호출(SELECT, INSERT, UPDATE, DELETE) 후
+   결과(ReusltSet, int) 반환
+4. 트랜젝션 제어처리(INSERT, UPDATE, DELETE의 경우)
+5. Connection 반환(close)
+6. 결과를 Controller 또는 Viewer에 반환
+
+------------------------------------------------------------------
+(★) import static edu.kh.jdbc.common.JDBCTemplate.close;
+DAO 단에서 처리(대부분 동일)
+(필드) DB 접근 관련한 JDBC 객체 참조변수 미리 선언
+        (Statement, PreparedStatement, ResultSet)
+
+(이하 메서드)
+1. 결과 저장용 변수 선언
+(Exception 은 메서드 선언 시 throws 할 것)
+(이하 try 문)
+2. SQL 문 작성
+3. Statement 또는 PreparedStatement 객체 생성
+4. ? (위치홀더) 에 알맞은 값 대입 (없으면 생략 가능)
+5. SQL 수행(executeQuery, executeUpdate) 후 결과(Resultset, int) 반환
+6. (SELECT) 조회 결과를 1행씩 접근하여 컬럼값 얻어오기
+    (행의 개수에 따라 while문 또는 if문 선택)
+(이하 finally 문)
+7. 사용한 JDBC 객체 자원 반환(close) 역순
+    (ResultSet, PreparedStatement 또는 Statement)
+(이하 return 구문)
+8. 결과를 호출한 Service에 반환

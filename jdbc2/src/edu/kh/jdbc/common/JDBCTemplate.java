@@ -100,7 +100,11 @@ public class JDBCTemplate {
 	 * @param conn
 	 */
 	public static void rollback(Connection conn) {
-		
+		try {
+			if(conn != null && !conn.isClosed()) conn.rollback();			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 	//-----------------------------------------------
@@ -108,7 +112,11 @@ public class JDBCTemplate {
 	 * @param conn
 	 */
 	public static void close(Connection conn) {
-		
+		try {
+			if(conn != null && !conn.isClosed()) conn.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 	/** 전달받은 Statement + PreparedStatement 둘 다 close() 
@@ -117,13 +125,21 @@ public class JDBCTemplate {
 	 * @param stmt
 	 */
 	public static void close(Statement stmt) {
-		
+		try {
+			if(stmt != null && !stmt.isClosed()) stmt.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 	/** 전달받은 ResultSet을 close()하는 메서드
 	 * @param rs
 	 */
 	public static void close(ResultSet rs) {
-		
+		try {
+			if(rs != null && !rs.isClosed()) rs.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 }
