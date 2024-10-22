@@ -110,6 +110,7 @@ public class JDBCTemplate {
 	//-----------------------------------------------
 	/** 전달받은 커넥션을 close(자원 반환)하는 메서드 
 	 * @param conn
+	 * 아래 전부 close()인데 오버로딩되어 메서드 선언 가능!
 	 */
 	public static void close(Connection conn) {
 		try {

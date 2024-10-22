@@ -28,7 +28,7 @@ COMMIT;
 
 --DROP TABLE TB_USER;
 
--- 여기부턴 SQL 실행
+------------------------------------ 여기부턴 SQL 실행 ------------------------------------
 SELECT * FROM TB_USER;
 
 SELECT * FROM TB_USER WHERE USER_ID = 'user01';
@@ -53,6 +53,37 @@ WHERE USER_NO = 5;
 SELECT * FROM TB_USER;
 
 ROLLBACK;
+
+SELECT USER_NO, USER_ID, USER_PW, USER_NAME, TO_CHAR(ENROLL_DATE, 'YYYY"년" MM"월" DD"일"') "ENROLL_DATE"  
+FROM TB_USER
+WHERE USER_ID = 'user07'
+AND USER_PW = 'pass02';
+
+/*
+ * 여러 컬럼을 한 번에 수정할 시 콤마(,)로 컬럼을 구분하면 됨
+-- D9 / 총무부 -> D0 / 전력기획팀 으로 수정하려는 경우
+UPDATE DEPARTMENT2 
+SET DEPT_ID ='D0', DEPT_TITLE = '전략기획팀'	-- WHERE절 직전 컬럼 작성시 콤마 X
+WHERE DEPT_ID = 'D9' AND DEPT_TITLE ='총무부';
+*/
+UPDATE TB_USER 
+SET USER_NAME = '유저오'
+WHERE USER_ID = 'user05'
+AND USER_PW = 'pass05';
+
+ROLLBACK;
+
+SELECT * FROM TB_USER
+ORDER BY 1;
+
+SELECT USER_NO FROM TB_USER
+WHERE USER_ID = 'user05'
+AND USER_PW = 'pass05';
+
+SELECT COUNT(*) 
+FROM TB_USER
+WHERE USER_ID = 'user01';
+
 
 
 
