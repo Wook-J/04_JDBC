@@ -1,0 +1,62 @@
+JDBC_TodoList프로젝트 구조 문서.pdf
+p1 : src/main/resources
+-> WEB-INF/classes로 복사(외부에서 접근 불가능!)
+-> 복사되는 대상 : src/main/resources, src/main/java
+
+빌드과정 중 컴파일, 리소스파일처리 가 있음
+컴파일 : 자바코드를 -> 컴퓨터가 읽을 수 있는 언어로 변환
+
+p2 : src/main/webapp/resources
+
+src/main/resource 파일은 Dynamic Web Project 생성 시
+자동으로 만들어주지 않음. -> 프로젝트 설정 시 직접 해야 함!
+
+p3 ~
+
+톰캣 설정
+Window - Preferences 클릭
+Server - Runtime Environments 클릭
+Add... 클릭
+Apache Tomcat v10.1 선택 next 클릭
+Browse 클릭 - C:\tools 에서 apache-tomcat-10.1.30 선택
+Finish 클릭
+-----------------------------------
+XML (Wild Web Developer) 에서 Download~~ 체크되어있는지 다시 확인
+(가끔 뜨는 Error 없애는 용도)
+--------------------------------------------
+New Server
+Apache - Tomcat v10.1 Server
+Server name : todoServer
+Finish 클릭
+
+---------------------------------------------------------------
+
+Dynamic Web Project 누르고 Next 클릭
+Project name : todoList
+Target runtime(v10.1) 및 Dynamic web module version(6.0) 확인
+Next 클릭
+Add folder 클릭 
+src/main/resources 작성 후 OK 클릭
+Default output folder부분을 src/main/webapp/WEB-INF/classes 로 변경
+Next 클릭
+Context root : /로 변경
+Content directory : 그대로
+Generate wen.xml deployment descriptor : 체크
+Finish 클릭
+------------------------------
+webapp 바로 하위에 index.jsp 생성(next 안해도 됨)
+index.jsp -> 안에 내용 수정
+
+(★) webapp/WEB-INF/lib 폴더에 아래 파일 5개 넣기!!!!
+jsp 에서 JSTL 문법 이용할 예정이므로 파일3개
+DTO 에서 쓸 파일 1개(lombok)
+파일 1개(ojdbc) 
+-------------------------------
+src/main/resources 클릭 후 ctrl n + folder
+Folder name : xml 작성 후 Finish 클릭
+----------------------------------------------------------------
+프로그램이 돌아가는 구조
+프로젝트 실행 -> "/" -> index.jsp -> "/main" -> MainServlet -> main.jsp
+
+-----------------------------------------------------------------
+(★) TodoListDAOImpl의 (필드, 기본생성자) 부분 세팅 아주중요!!!!
