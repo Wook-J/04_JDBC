@@ -1,0 +1,7 @@
+DB에서 인덱스 : 책 앞쪽에서 목차같은 부분(빠르게 찾기)
+(PRIMARY KEY 등)
+TB_TODO에서의 index -> TODO_NO
+--------------------------------------------------------------
+JS 코드
+new URLSearchParams(location.search).get("todoNo")
+를 이용해서 todoNo만 뽑아와서 버튼 누를때 마다 요청주소에 껴서 보내기

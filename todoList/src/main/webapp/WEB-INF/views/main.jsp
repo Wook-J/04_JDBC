@@ -47,15 +47,19 @@
       </tr>
     </thead>
 
-	<tbody>
+  	<tbody>
       <c:forEach items="${todoList}" varStatus="vs" var="todo">
         <tr>
              	
           <th>${vs.count}</th> <%-- 단순 출력 번호 --%>
-          <th>${todo.todoNo}</th> <%-- todoNo/ vs.current.todoNo 도 가능! --%>
+          <th>${todo.todoNo}</th> <%-- todoNo, vs.current.todoNo 도 가능! --%>
 
           <td>
-            <a href="">${todo.title}</a>	<%-- 제목 --%>
+            <%-- 제목 클릭 시 인덱스 번호를 이용하여
+            	todoList의 인덱스 번째 요소 내용을 조회하기
+            	Todo 클래스에서 멤버변수 + DB에서 PK 있는 거 연결 
+             --%>
+            <a href="/todo/detail?todoNo=${todo.todoNo}">${todo.title}</a>	<%-- 제목 --%>
           </td>
 
           <%-- 완료 여부 --%>
@@ -71,7 +75,7 @@
     </tbody>
   </table>
   
-  <%-- session 범위에 message가 있을 경우 --%>
+  <%-- session 범위에 message 가 있을 경우 --%>
   <c:if test="${not empty sessionScope.message}">
   	<script>
   		alert("${sessionScope.message}");
