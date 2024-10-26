@@ -7,5 +7,9 @@
 	</classpathentry>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="lib" path="C:/tools/ojdbc10-full/ojdbc10.jar"/>
+<<<<<<< HEAD
+=======
+	<classpathentry kind="lib" path="C:/tools/lombok.jar"/>
+>>>>>>> feea389bed3ae92dba0e6127b93ded68e1279afb
 	<classpathentry kind="output" path="bin"/>
 </classpath>
